@@ -112,7 +112,6 @@ class ContaTest {
 
     @Test
     void depositar_ValorZeroOuNegativo_AtualizaSaldo() {
-        // Arrange
         var conta = new Conta("Maria", 100);
 
         assertThrows(IllegalArgumentException.class, () -> conta.depositar(0));
@@ -126,6 +125,14 @@ class ContaTest {
         conta.sacar(40);
 
         assertEquals(60, conta.getSaldo());
+    }
+
+    @Test
+    void sacar_ValorZeroOuNegativo_AtualizaSaldo() {
+        var conta = new Conta("Maria", 100);
+
+        assertThrows(IllegalArgumentException.class, () -> conta.sacar(0));
+        assertThrows(IllegalArgumentException.class, () -> conta.sacar(-10));
     }
 
 }
