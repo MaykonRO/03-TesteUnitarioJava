@@ -105,6 +105,8 @@ class ContaTest {
     void encerrar_SaldoZero_DesativaConta() {
         var conta = new Conta("Maria", 0);
 
+        conta.encerrar();
+
         assertEquals(false, conta.isAtiva());
     }
 }
