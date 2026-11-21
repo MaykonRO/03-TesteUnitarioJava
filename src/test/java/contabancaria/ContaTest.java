@@ -110,4 +110,18 @@ class ContaTest {
         assertEquals(150, conta.getSaldo());
     }
 
+    @Test
+    void depositar_ValorZeroOuNegativo_AtualizaSaldo() {
+        // Arrange
+        var conta = new Conta("Maria", 100);
+
+        // Act
+        // conta.depositar(0);
+        assertThrows(IllegalArgumentException.class, () -> conta.depositar(0) );
+        assertThrows(IllegalArgumentException.class,() -> conta.depositar(-10));
+        // conta.depositar();
+
+        // Assert
+    }
+
 }
