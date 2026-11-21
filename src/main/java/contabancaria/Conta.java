@@ -103,7 +103,7 @@ public class Conta {
      * - A propriedade ativa deve ser alterada para false.
      */
     public void encerrar() {
-        if (saldo > 0)
+        if (saldo > 0 || !isAtiva())
             throw new IllegalStateException();
         ativa = false;
     }
