@@ -167,6 +167,18 @@ class ContaTest {
         assertEquals(100, contaDestino.getSaldo());
         
     }
+
+    @Test
+    void transferir_transferirValorParaContaEncerrada_IllegalStateException() {
+        var contaOrigem = new Conta("Maria", 0);
+        var contaDestino = new Conta("João", 100);
+
+        contaOrigem.encerrar();
+        assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, 100));
+        assertEquals(0, contaOrigem.getSaldo());
+        assertEquals(100, contaDestino.getSaldo());
+        
+    }
     
 
 }
