@@ -136,6 +136,17 @@ class ContaTest {
         assertThrows(IllegalStateException.class, () -> conta.sacar(10));
     }
 
+    @Test
+    void transferir_enviaValorPoistivoParaOutraConta_valoresAtualizadosNasDuasContas() {
+        var contaOrigem = new Conta("Maria", 200);
+        var contaDestino = new Conta("João", 100);
+
+        contaOrigem.transferir(contaDestino, 50);
+
+        assertEquals(150, contaOrigem.getSaldo());
+        assertEquals(150, contaDestino.getSaldo());
+        
+    }
     
 
 }
