@@ -99,7 +99,7 @@ public class Conta {
      */
     public void transferir(Conta destino, double valor) {
         if (valor <= 0)
-            throw new IllegalStateException();
+            throw new IllegalArgumentException();
 
         Conta contaDestino = destino;
         saldo -= valor;

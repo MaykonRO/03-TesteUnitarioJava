@@ -145,15 +145,24 @@ class ContaTest {
 
         assertEquals(150, contaOrigem.getSaldo());
         assertEquals(150, contaDestino.getSaldo());
-        
     }
+
     @Test
-    void transferir_enviaValorNegativoOuZeradoParaOutraConta_IllegalStateException() {
+    void transferir_enviaValorNegativoOuZeradoParaOutraConta_IllegalArgumentException() {
         var contaOrigem = new Conta("Maria", 200);
         var contaDestino = new Conta("João", 100);
 
-        assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, -50));
-        assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, 0));
+        assertThrows(IllegalArgumentException.class, () -> contaOrigem.transferir(contaDestino, -50));
+        assertThrows(IllegalArgumentException.class, () -> contaOrigem.transferir(contaDestino, 0));
+        
+    }
+    
+    @Test
+    void transferir_transferirValorAcimaDoSaldo_IllegalStateException() {
+        var contaOrigem = new Conta("Maria", 200);
+        var contaDestino = new Conta("João", 100);
+
+        assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, 201));
         
     }
     
