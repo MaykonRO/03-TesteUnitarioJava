@@ -115,13 +115,17 @@ class ContaTest {
         // Arrange
         var conta = new Conta("Maria", 100);
 
-        // Act
-        // conta.depositar(0);
-        assertThrows(IllegalArgumentException.class, () -> conta.depositar(0) );
-        assertThrows(IllegalArgumentException.class,() -> conta.depositar(-10));
-        // conta.depositar();
+        assertThrows(IllegalArgumentException.class, () -> conta.depositar(0));
+        assertThrows(IllegalArgumentException.class, () -> conta.depositar(-10));
+    }
 
-        // Assert
+    @Test
+    void sacar_ValorValido_AtualizaSaldo() {
+        var conta = new Conta("Maria", 100);
+
+        conta.sacar(40);
+
+        assertEquals(60, conta.getSaldo());
     }
 
 }
