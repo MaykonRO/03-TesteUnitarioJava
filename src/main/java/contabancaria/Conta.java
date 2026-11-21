@@ -101,6 +101,9 @@ public class Conta {
         if (valor <= 0)
             throw new IllegalArgumentException();
 
+        if (valor > saldo)
+            throw new IllegalStateException();
+
         Conta contaDestino = destino;
         saldo -= valor;
         contaDestino.depositar(valor);

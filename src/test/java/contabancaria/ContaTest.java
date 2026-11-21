@@ -163,6 +163,8 @@ class ContaTest {
         var contaDestino = new Conta("João", 100);
 
         assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, 201));
+        assertEquals(200, contaOrigem.getSaldo());
+        assertEquals(100, contaDestino.getSaldo());
         
     }
     
