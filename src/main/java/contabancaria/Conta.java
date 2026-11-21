@@ -101,7 +101,7 @@ public class Conta {
         if (valor <= 0)
             throw new IllegalArgumentException();
 
-        if (valor > saldo)
+        if (valor > saldo || isAtiva() == false)
             throw new IllegalStateException();
 
         Conta contaDestino = destino;
