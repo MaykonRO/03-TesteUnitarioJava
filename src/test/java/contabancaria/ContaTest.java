@@ -142,4 +142,11 @@ class ContaTest {
         assertThrows(IllegalArgumentException.class, () -> conta.sacar(101));
     }
 
+    @Test 
+    void encerrar_contaZerada_encerraAConta(){
+        var conta = new Conta("Maria", 0);
+
+        assertEquals(false, conta.isAtiva());
+    }
+
 }
