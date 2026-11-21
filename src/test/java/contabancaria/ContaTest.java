@@ -133,7 +133,7 @@ class ContaTest {
         conta.encerrar();
     
         assertThrows(IllegalStateException.class, () -> conta.depositar(15));
-        assertThrows(IllegalStateException.class, () -> conta.depositar(10));
+        assertThrows(IllegalStateException.class, () -> conta.sacar(10));
     }
 
     

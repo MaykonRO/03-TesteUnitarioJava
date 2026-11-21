@@ -61,6 +61,9 @@ public class Conta {
      * - O saldo deve ser atualizado corretamente.
      */
     public void depositar(double valor) {
+        if (isAtiva() == false)
+            throw new IllegalStateException();
+
         if (valor <= 0)
             throw new IllegalArgumentException();
 
@@ -76,8 +79,13 @@ public class Conta {
      * - O saldo deve ser atualizado corretamente.
      */
     public void sacar(double valor) {
+        if (isAtiva() == false)
+            throw new IllegalStateException();
+        
         if (valor <= 0 || saldo < valor)
             throw new IllegalArgumentException();
+
+
         saldo -= valor;
     }
 
