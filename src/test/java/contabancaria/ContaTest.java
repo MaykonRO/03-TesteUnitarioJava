@@ -135,4 +135,11 @@ class ContaTest {
         assertThrows(IllegalArgumentException.class, () -> conta.sacar(-10));
     }
 
+    @Test
+    void sacar_acimaDoSaldo_AtualizaSaldo() {
+        var conta = new Conta("Maria", 100);
+
+        assertThrows(IllegalArgumentException.class, () -> conta.sacar(101));
+    }
+
 }
