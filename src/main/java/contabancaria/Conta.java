@@ -81,7 +81,7 @@ public class Conta {
     public void sacar(double valor) {
         if (isAtiva() == false)
             throw new IllegalStateException();
-        
+
         if (valor <= 0 || saldo < valor)
             throw new IllegalArgumentException();
 
@@ -98,8 +98,9 @@ public class Conta {
      * - O saldo de ambas as contas deve ser atualizado corretamente.
      */
     public void transferir(Conta destino, double valor) {
-        // TODO: Implemente usando TDD
-        throw new UnsupportedOperationException();
+        Conta contaDestino = destino;
+        saldo -= valor;
+        contaDestino.depositar(valor);
     }
 
     /**
