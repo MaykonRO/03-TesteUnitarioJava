@@ -153,6 +153,7 @@ class ContaTest {
         var contaDestino = new Conta("João", 100);
 
         assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, -50));
+        assertThrows(IllegalStateException.class, () -> contaOrigem.transferir(contaDestino, 0));
         
     }
     
