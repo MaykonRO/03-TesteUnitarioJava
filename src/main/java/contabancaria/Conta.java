@@ -54,7 +54,7 @@ public class Conta {
      */
     public void depositar(double valor) {
         // TODO: Implemente usando TDD
-        throw new UnsupportedOperationException();
+        saldo += valor;
     }
 
     /**
